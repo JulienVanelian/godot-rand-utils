@@ -1,14 +1,13 @@
 tool
-extends Node
+class_name RandUtils extends Resource
 
-func get_rand_bool() -> bool:
+static func get_rand_bool(probability: float = .5) -> bool:
 	randomize()
 
-	return bool(randi() % 2)
+	return bool(randf() < 1 - probability)
 
-func get_rand_from_array(array: Array, num: int = 1, unique: bool = false):
+static func get_rand_from_array(array: Array, num: int = 1, unique: bool = false):
 	assert(num >= 1 and num <= len(array), "RandUtils ERROR: Out of bounds.")
-
 	randomize()
 
 	if len(array) == 1:
