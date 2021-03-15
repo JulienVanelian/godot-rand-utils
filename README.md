@@ -2,7 +2,7 @@
 A collection of RNG (Random Number Generator) utilities for the Godot Engine.
 
 ## Why?
-I felt like I was missing RNG utilities while working on my game, so I started working on this addo, and kept adding methods others might need!
+I felt like I was missing RNG utilities while working on my game, so I started working on this addon, and kept adding methods others might need!
 
 ## Features
 This addon provides:
@@ -10,7 +10,7 @@ This addon provides:
 - Random string generation
 - Random boolean with ability to specify probability
 - Random normalized Vec2 and Vec3
-- Random Color with customizable HSVa ranges
+- Random Color with customizable HSV ranges
 - Random item(s) from array
 - Random byte(s)
 
@@ -20,6 +20,7 @@ This addon provides:
 
 ## Usage
 This addon provides a `RandUtils` class, which contains static methods used to generate data.
+As the methods are static, you don't have to instantiate the class.
 
 ```gdscript
 ## Returns a boolean based on a probability
@@ -80,6 +81,21 @@ static func byte_array(size: int = 1) -> PoolByteArray:
 ## Returns one or multiple random elements from an array
 static func from_array(array: Array, num: int = 1, unique: bool = false) -> Array:
 ```
+
+## Examples
+
+### 70% probability of having a boolean of value `true`
+```gdscript
+RandUtils.bool(.7)
+```
+
+### Getting n elements from an array
+```gdscript
+var array = ["banana", "apple", "cherry", "cat"]
+print(RandUtils.from_array(array, 2))
+```
+Output: `["apple", "cat"]`
+
 
 ## Licence
 This addon is published under the MIT licence.
