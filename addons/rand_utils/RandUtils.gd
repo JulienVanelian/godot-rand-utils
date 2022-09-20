@@ -6,6 +6,7 @@ const ASCII_LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const ASCII_LOWERCASE = "abcdefghijklmnopqrstuvwxyz"
 const ASCII_UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const ASCII_DIGITS = "0123456789"
+const ASCII_HEXDIGITS = "0123456789ABCDEF"
 const ASCII_PUNCTUATION =  "!\"#$%&'()*+, -./:;<=>?@[\\]^_`{|}~"
 
 ## Returns a boolean based on a probability
@@ -29,6 +30,14 @@ static func vec3() -> Vector3:
 ## Returns a random string containing letters with a given length
 static func letters(length: int = 1, unique: bool = false) -> String:
 	return from_string(ASCII_LETTERS, length, unique)
+
+## Returns a random string containing numeric characters with a given length
+static func numeric(length: int = 1, unique: bool = false) -> String:
+	return from_string(ASCII_DIGITS, length, unique)
+
+## Returns a random string containing hex characters with a given length
+static func hex(length: int = 1, uppercase: bool = false, unique: bool = false) -> String:
+	return from_string(ASCII_HEXDIGITS.to_upper() if uppercase else ASCII_HEXDIGITS, length, unique)
 
 ## Returns a random string containing alphanumeric characters with a given length
 static func alphanumeric(length: int = 1, unique: bool = false) -> String:
@@ -66,7 +75,7 @@ static func byte_array(size: int = 1) -> PoolByteArray:
 	randomize()
 	var array = []
 
-	for i in range(0, size):
+	for _i in range(0, size):
 		array.append(byte())
 
 	return PoolByteArray(array)

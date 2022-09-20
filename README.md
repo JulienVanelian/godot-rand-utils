@@ -8,6 +8,8 @@ I felt like I was missing RNG utilities while working on my game, so I started w
 This addon provides:
 
 - Random string generation
+- Random hex string generation
+- Random numeric string generation
 - Random boolean with ability to specify probability
 - Random normalized Vec2 and Vec3
 - Random Color with customizable HSV ranges
@@ -40,6 +42,16 @@ static func vec3() -> Vector3:
 ```gdscript
 ## Returns a random string containing letters with a given length
 static func letters(length: int = 1, unique: bool = false) -> String:
+```
+
+```gdscript
+## Returns a random string containing numeric characters with a given length
+static func numeric(length: int = 1, unique: bool = false) -> String:
+```
+
+```gdscript
+## Returns a random string containing hex characters with a given length
+static func hex(length: int = 1, uppercase: bool = false, unique: bool = false) -> String:
 ```
 
 ```gdscript
@@ -94,7 +106,7 @@ RandUtils.bool(.7)
 var array = ["banana", "apple", "cherry", "cat"]
 print(RandUtils.from_array(array, 2))
 ```
-Output: `["apple", "cat"]`
+Example output: `["apple", "cat"]`
 
 
 ## Licence
